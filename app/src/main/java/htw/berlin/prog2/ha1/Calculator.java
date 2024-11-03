@@ -106,9 +106,12 @@ public class Calculator {
      * entfernt und der Inhalt fortan als positiv interpretiert.
      */
     public void pressNegativeKey() {
-
+        if (screen.equals("0") || screen.isEmpty()) {
+            return;
+        } else {
             screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
 
+        }
     }
 
     /**
@@ -121,8 +124,10 @@ public class Calculator {
      * und das Ergebnis direkt angezeigt.
      */
     public void pressEqualsKey() {
-
-
+        if (latestOperation.isEmpty()) {
+            screen = "Error"; // Setze den Bildschirm auf "Error" wenn keine vorherige Operation
+            return;
+        }
         var result = switch(latestOperation) {
             case "+" -> latestValue + Double.parseDouble(screen);
             case "-" -> latestValue - Double.parseDouble(screen);
