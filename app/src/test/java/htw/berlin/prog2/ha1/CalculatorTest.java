@@ -116,6 +116,20 @@ class CalculatorTest {
 
         assertEquals(expected, actual);
     }
+    @Test
+    @DisplayName("should display error when equals is pressed without a previous operation")
+    void testEqualsWithoutOperation() {
+        Calculator calc = new Calculator();
+
+        // Keine Operation, einfach die „=“-Taste drücken
+        calc.pressEqualsKey();
+
+        String expected = "Error"; // Erwartete Ausgabe
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
 
 }
 
