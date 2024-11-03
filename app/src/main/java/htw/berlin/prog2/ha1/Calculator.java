@@ -100,6 +100,7 @@ public class Calculator {
 
     /**
      * Empfängt den Befehl der gedrückten Vorzeichenumkehrstaste ("+/-").
+     * Überprüft, ob die Zahl 0 ist. Wenn die Zahl 0 ist, wird die Zahl nicht negativ.
      * Zeigt der Bildschirm einen positiven Wert an, so wird ein "-" links angehängt, der Bildschirm
      * aktualisiert und die Inhalt fortan als negativ interpretiert.
      * Zeigt der Bildschirm bereits einen negativen Wert mit führendem Minus an, dann wird dieses
@@ -117,6 +118,7 @@ public class Calculator {
     /**
      * Empfängt den Befehl der gedrückten "="-Taste.
      * Wurde zuvor keine Operationstaste gedrückt, passiert nichts.
+     * Überprüft, ob ein Wert zuvor eingegeben wurde. Falls nicht, wird Error ausgegeben.
      * Wurde zuvor eine binäre Operationstaste gedrückt und zwei Operanden eingegeben, wird das
      * Ergebnis der Operation angezeigt. Falls hierbei eine Division durch Null auftritt, wird "Error" angezeigt.
      * Wird die Taste weitere Male gedrückt (ohne andere Tasten dazwischen), so wird die letzte
