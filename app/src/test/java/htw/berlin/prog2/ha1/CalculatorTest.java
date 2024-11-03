@@ -104,7 +104,18 @@ class CalculatorTest {
 
         assertEquals(expected, actual);
     }
+    @Test
+    @DisplayName("should not change sign for an empty screen")
+    void testSignChangeOnEmptyScreen() {
+        Calculator calc = new Calculator();
 
+        calc.pressNegativeKey(); // Vorzeichen ändern auf leerem Bildschirm
+
+        String expected = "0"; // Erwartete Ausgabe
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 
 }
 

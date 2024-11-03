@@ -86,6 +86,7 @@ public class Calculator {
 
     }
 
+
     /**
      * Empfängt den Befehl der gedrückten Dezimaltrennzeichentaste, im Englischen üblicherweise "."
      * Fügt beim ersten Mal Drücken dem aktuellen Bildschirminhalt das Trennzeichen auf der rechten
@@ -105,7 +106,11 @@ public class Calculator {
      * entfernt und der Inhalt fortan als positiv interpretiert.
      */
     public void pressNegativeKey() {
-        screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        if (screen.equals("0") || screen.isEmpty()) {
+            return;
+        }  else {
+            screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        }
     }
 
     /**
@@ -129,6 +134,10 @@ public class Calculator {
         if(screen.equals("Infinity")) screen = "Error";
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
         if(screen.contains(".") && screen.length() > 11) screen = screen.substring(0, 10);
-
     }
+
+
+
+
+
 }
